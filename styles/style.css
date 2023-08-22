@@ -13,7 +13,7 @@ body {
   align-items: center;
 }
 
-#profileImgContainer {
+#topContainer {
   margin-bottom: 0px;
   @media (max-width: 575px) {
     margin-top: 200px;
