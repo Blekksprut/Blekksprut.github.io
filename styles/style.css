@@ -20,6 +20,13 @@ body {
   }
 }
 
+#aboutContainer {
+  margin-bottom: 0px;
+  @media (max-width: 575px) {
+    margin-top: 300px;
+  }
+}
+
 img {
   margin: 80px 10px 0px 0px;
 }
