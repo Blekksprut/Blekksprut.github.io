@@ -1,0 +1,33 @@
+h1 {
+  font-family: "Pridi";
+  font-size: larger;
+  font-weight: 900;
+  color: #1dbedd;
+  letter-spacing: 0.05em;
+}
+
+h2,
+p,
+.nav-link {
+  font-family: "Open Sans";
+}
+
+h2 {
+  font-size: large;
+}
+
+p {
+  font-size: 12pt;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.navbar {
+  background-color: #1dbedd;
+}
+
+.blurb {
+  max-width: 500px;
+}
