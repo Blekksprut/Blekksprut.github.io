@@ -14,6 +14,7 @@ p,
 
 h2 {
   font-size: large;
+  padding-bottom: 10px;
 }
 
 p {
@@ -24,10 +25,24 @@ p {
   color: #fff !important;
 }
 
-.navbar {
-  background-color: #1dbedd;
-}
-
 .blurb {
   max-width: 500px;
+}
+
+img {
+  margin: 50px 10px 50px 0px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: #ffffff; /* Divider line color */
+  margin: 0 10px; /* Adjust margins as needed */
+
+  /* Media query for mobile layout */
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 1px;
+    margin: 10px 0;
+  }
 }
