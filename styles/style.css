@@ -1,3 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profileImgContainer {
+  margin-bottom: 0px;
+  @media (max-width: 575px) {
+    margin-top: 200px;
+  }
+}
+
+img {
+  margin: 80px 10px 0px 0px;
+}
+
 h1 {
   font-family: "Pridi";
   font-size: larger;
@@ -21,22 +47,25 @@ p {
   font-size: 12pt;
 }
 
-.nav-link {
-  color: #fff !important;
-}
-
 .blurb {
   max-width: 500px;
 }
 
-img {
-  margin: 50px 10px 50px 0px;
+.nav-link {
+  color: #fff !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.navbar-nav a:hover {
+  background-color: #018fac;
+  border-radius: 5%;
 }
 
 .divider {
   width: 1px;
   height: 40px;
-  background-color: #ffffff; /* Divider line color */
+  background-color: #fff; /* Divider line color */
   margin: 0 10px; /* Adjust margins as needed */
 
   /* Media query for mobile layout */
