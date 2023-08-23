@@ -82,3 +82,17 @@ p {
     margin: 10px 0;
   }
 }
+
+.button-container {
+  padding: 20px 0px 20px 0px;
+}
+.button {
+  display: flex;
+  align-items: center;
+}
+.button > span {
+  font-weight: 500;
+}
+.logo {
+  margin-top: 0;
+}
