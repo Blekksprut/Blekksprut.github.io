@@ -15,6 +15,7 @@ body {
 }
 
 #topContainer {
+  margin-top: 50px;
   margin-bottom: 0px;
 }
 
@@ -24,7 +25,7 @@ body {
 
 @media (max-width: 575px) {
   #topContainer {
-    margin-top: 200px;
+    margin-top: 250px;
   }
   #aboutContainer {
     margin-top: 300px;
@@ -39,6 +40,15 @@ body {
 
 img {
   margin: 80px 10px 0px 0px;
+  z-index: 1;
+  position: relative;
+}
+
+#firstLottie {
+  z-index: 2;
+  position: absolute;
+  margin-left: -10px;
+  margin-top: -30px;
 }
 
 /* *FONTS */
