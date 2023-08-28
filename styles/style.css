@@ -25,7 +25,7 @@ body {
 
 @media (max-width: 575px) {
   #topContainer {
-    margin-top: 250px;
+    margin-top: 260px;
   }
   #aboutContainer {
     margin-top: 300px;
@@ -47,8 +47,8 @@ img {
 #firstLottie {
   z-index: 2;
   position: absolute;
-  margin-left: -10px;
-  margin-top: -30px;
+  margin-left: -50px;
+  margin-top: -40px;
 }
 
 /* *FONTS */
