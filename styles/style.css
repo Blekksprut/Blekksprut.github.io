@@ -1,5 +1,5 @@
-/* *GENERAL LAYOUTS */
-body {
+*GENERAL LAYOUTS
+/* body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,7 +31,7 @@ body {
     margin-top: 300px;
   }
   /* Rotate the nav divider line in mobile or small screens */
-  .divider {
+  /* .divider {
     width: 100% !important;
     height: 1px !important;
     margin: 10px 0 !important;
@@ -42,17 +42,17 @@ img {
   margin: 80px 10px 0px 0px;
   z-index: 1;
   position: relative;
-}
+} */
 
-#firstLottie {
+/* #firstLottie {
   z-index: 2;
   position: absolute;
   margin-left: -50px;
   margin-top: -40px;
-}
+} */ */
 
 /* *FONTS */
-h1 {
+/* h1 {
   font-family: "Pridi";
   font-size: larger;
   font-weight: 900;
@@ -77,10 +77,10 @@ p {
 
 .blurb {
   max-width: 500px;
-}
+} */
 
 /* *NAVBAR */
-.nav-link {
+/* .nav-link {
   color: #fff !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
@@ -96,10 +96,10 @@ p {
   height: 40px;
   background-color: #fff;
   margin: 0 10px;
-}
+} */
 
 /* *BUTTONS */
-.button-container {
+/* .button-container {
   padding: 20px 0px 20px 0px;
 }
 .button {
@@ -111,4 +111,4 @@ p {
 }
 .logo {
   margin-top: 0;
-}
+} */
