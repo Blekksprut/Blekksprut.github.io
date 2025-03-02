@@ -21,12 +21,16 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/5c1bf662b3.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="scripts/script.js"></script>
   </head>
 
   <body>
     <nav
-      class="navbar fixed-top navbar-expand-sm justify-content-center"
+      class="navbar fixed-top navbar-expand-sm justify-content-center mb-5"
       style="background-color: #1dbedd"
     >
       <ul class="navbar-nav">
@@ -65,24 +69,22 @@
     </nav>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <!-- old version of animation
-      src="https://lottie.host/1d98fdfe-81e6-464f-b26c-17f6a678d174/VoXcljbIVJ.json" -->
     <div class="container" id="topContainer">
       <div>
         <lottie-player
           id="firstLottie"
-          src="https://lottie.host/888f48c6-6a6c-4ab9-b2eb-38344cc55153/YY1n33vitx.json"
+          src="img/Symbols-lottie.json"
           background="transparent"
-          speed="0.5"
-          style="max-width: 439px; max-height: 454px"
-          hover
+          speed="0.4"
+          style="max-width: 309px; max-height: 324px"
+          autoplay
         ></lottie-player>
         <img
-          src="/img/pink-blue-circle-web.png"
+          src="/img/pink-blue-smiley-web.png"
           class="img-fluid"
           alt="Profile Photo"
           loading="lazy"
-          style="max-width: 350px; max-height: 350px"
+          style="max-width: 250px; max-height: 250px"
         />
       </div>
     </div>
@@ -94,10 +96,25 @@
         </h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">
-            I'm a soon-to-be graduate of a Bachelor of Computer Science majoring
-            in Data Science at Swinburne University of Technology. I have one
-            unit remaining and I'm primed and ready to apply my education in a
-            real world setting!
+            I'm a Junior Business Analyst with
+            <span id="time-at-ctb"></span> (but who's counting) of working
+            expertise with:
+          </p>
+          <p class="lead mb-4">
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i>
+            Planning system improvements through team and stakeholder
+            collaboration
+          </p>
+          <p class="lead mb-4">
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i> Writing
+            help guides and documentation
+          </p>
+          <p class="lead mb-4">
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i> System and
+            feature testing
+          </p>
+          <p class="lead mb-4">
+            <i class="fa-solid fa-plus" style="color: #1dbedd"></i> and more!
           </p>
         </div>
       </div>
