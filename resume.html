@@ -5,7 +5,9 @@
     <meta name="description" content="Dani Martin Portfolio" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Dani Martin" />
-    <title>Contact</title>
+    <title>Resume</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="charts/resumeTimeline.js"></script>
     <link href="styles/style.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -25,7 +27,13 @@
       src="https://kit.fontawesome.com/5c1bf662b3.js"
       crossorigin="anonymous"
     ></script>
-    <script src="scripts/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script>
+      $(function () {
+        $("#includeHtml").load("description11.html");
+        $("#includeHtml").load("description4.html");
+      }); -->
+    </script>
   </head>
 
   <body>
@@ -38,21 +46,18 @@
           <a class="nav-link" href="/index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/resume.html">Resume</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/trophy.html">Trophy Corner</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about.html">About</a>
-        </li>
-        <li class="nav-item">
           <a
             class="nav-link active fw-bold"
             aria-current="page"
-            href="/contact.html"
-            >Contact</a
+            href="/resume.html"
+            >Resume</a
           >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/achievements.html">Achievements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
         </li>
         <div class="divider"></div>
         <li class="nav-item">
@@ -74,17 +79,13 @@
       </ul>
     </nav>
 
-    <div class="container" id="topContainer">
-      <div class="blurb mx-auto text-center">
-        <h2 class="display-6 fw-bold text-body-emphasis">Contact Details</h2>
-        <p class="lead mt-4">
-          <i class="fa-solid fa-envelope" style="color: #1dbedd"></i>
-          danielle.martin358@gmail.com
-        </p>
-        <p class="lead mb-4">
-          <i class="fa-solid fa-map-marker-alt" style="color: #1dbedd"></i>
-          Melbourne, Australia
-        </p>
+    <div class="container" id="resumeContainer">
+      <div>
+        <h2 class="display-6 fw-bold text-body-emphasis text-center">
+          My Career Timeline
+        </h2>
+        <p id="resumeTimeline" class="text-center"></p>
+        <div id="includeHtml"></div>
       </div>
     </div>
 
