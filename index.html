@@ -30,6 +30,7 @@
 
   <body>
     <nav
+      id="navbar"
       class="navbar fixed-top navbar-expand-sm justify-content-center mb-5"
       style="background-color: #1dbedd"
     >
@@ -55,35 +56,25 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            href="https://public.tableau.com/app/profile/danielle.martin1176"
-            target="_blank"
-            >Tableau Public</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
             href="https://www.linkedin.com/in/danielle-martin-87941b8b/"
             target="_blank"
-            >LinkedIn</a
-          >
+            >LinkedIn
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+              style="color: #ffffff"
+            ></i
+          ></a>
         </li>
       </ul>
     </nav>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <div id="toggle-nav-button" onclick="openNav()">
+      <h1><i class="fa-solid fa-bars" style="color: #1dbedd"></i></h1>
+    </div>
 
     <div class="container" id="topContainer">
       <div>
-        <lottie-player
-          id="firstLottie"
-          src="img/Symbols-lottie.json"
-          background="transparent"
-          speed="0.4"
-          style="max-width: 309px; max-height: 324px"
-          autoplay
-        ></lottie-player>
         <img
-          src="/img/pink-blue-smiley-web.png"
+          src="/img/habbo-me.gif"
           class="img-fluid"
           alt="Profile Photo"
           loading="lazy"
@@ -99,22 +90,32 @@
         </h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">
-            I'm a Junior Business Analyst with
-            <span id="time-at-ctb"></span> (but who's counting) of working
-            expertise with:
+            I'm currently looking to make an impact within the
+            <span class="fw-bold">public health, social welfare,</span>
+            or <span class="fw-bold">scientific </span> fields by applying my
+            computer science and communication skills.
+          </p>
+          <p class="lead mb-4 fw-bold">What do I bring to the table?</p>
+          <p class="lead mb-4">
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i>
+            Accurate visualisations that follow Tufte's principles and designs
+            that follow user centered design principles
           </p>
           <p class="lead mb-4">
             <i class="fa-solid fa-check" style="color: #1dbedd"></i>
-            Planning system improvements through team and stakeholder
-            collaboration
+            Clear and accessible written communication developed from on the job
+            experience writing help guides and marketing materials
           </p>
           <p class="lead mb-4">
-            <i class="fa-solid fa-check" style="color: #1dbedd"></i> Writing
-            help guides and documentation
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i>
+            Experience working as an Information Officer at an NFP supporting
+            those with ME/CFS
           </p>
           <p class="lead mb-4">
-            <i class="fa-solid fa-check" style="color: #1dbedd"></i> System and
-            feature testing
+            <i class="fa-solid fa-check" style="color: #1dbedd"></i>
+            Strong grasp of scientific concepts including research standards,
+            laboratory instrumentation, and medical jargon gained from education
+            and experience as a Laboratory Assistant
           </p>
           <p class="lead mb-4">
             <i class="fa-solid fa-plus" style="color: #1dbedd"></i> and more!

@@ -34,11 +34,12 @@
         $("#includeHtml").load("description4.html");
       }); -->
     </script>
+    <script src="scripts/script.js"></script>
   </head>
 
   <body>
     <nav
-      class="navbar fixed-top navbar-expand-sm justify-content-center"
+    id="navbar" class="navbar fixed-top navbar-expand-sm justify-content-center"
       style="background-color: #1dbedd"
     >
       <ul class="navbar-nav">
@@ -63,23 +64,23 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            href="https://public.tableau.com/app/profile/danielle.martin1176"
-            target="_blank"
-            >Tableau Public</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
             href="https://www.linkedin.com/in/danielle-martin-87941b8b/"
             target="_blank"
-            >LinkedIn</a
+            >LinkedIn <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            style="color: #ffffff"
+          ></i
+        ></a
           >
         </li>
       </ul>
     </nav>
+    <div id="toggle-nav-button" onclick="openNav()">
+      <h1><i class="fa-solid fa-bars" style="color: #1dbedd"></i></h1>
+    </div>
 
     <div class="container" id="resumeContainer">
+      <div><p><i id="arrow-left" class="fa-solid fa-chevron-left" style="color: #1dbedd"></i></p></div>
       <div>
         <h2 class="display-6 fw-bold text-body-emphasis text-center">
           My Career Timeline
@@ -87,6 +88,7 @@
         <p id="resumeTimeline" class="text-center"></p>
         <div id="includeHtml"></div>
       </div>
+      <div><p><i id="arrow-right" class="fa-solid fa-chevron-right"style="color: #1dbedd"></i></p></div>
     </div>
 
     <script

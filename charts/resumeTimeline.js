@@ -78,7 +78,7 @@ function resumeTimeline() {
           id: 11,
           label: "Junior Business Analyst, CTB AND CO.",
           startDate: new Date(2023, 9, 1),
-          endDate: new Date(),
+          endDate: new Date(2025, 6, 13),
         },
       ],
     },
@@ -90,6 +90,8 @@ function resumeTimeline() {
   var activeClicked = null;
   var primaryColor = "#1dbedd";
   var showTextBlock = 11;
+  var arrowLeft = document.getElementById("arrow-left");
+  var arrowRight = document.getElementById("arrow-right");
 
   var chart = document.getElementById("resumeTimeline");
   var margin = { top: 20, right: 30, bottom: 50, left: 50 },
@@ -105,7 +107,7 @@ function resumeTimeline() {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // X AXIS SCALE
-  var allTimes = [].concat(...timelineData.map((d) => d.times));
+  // var allTimes = [].concat(...timelineData.map((d) => d.times));
   //var scaleStartDate = d3.min(allTimes, (d) => d.startDate);
   var scaleStartDate = new Date(2010, 0, 1);
   var scaleEndDate = new Date(2026, 0, 1);
@@ -218,7 +220,7 @@ function resumeTimeline() {
       d3.select(this).attr("stroke-width", 23);
       d3.select(this).attr("stroke", primaryColor);
       myTooltip.transition().duration(200).style("opacity", 1);
-      if (d.id == 11) {
+      if (d.id == 12) {
         myTooltip.html(
           `<strong>${d.label}</strong><br>
           <strong>Start:</strong> ${formatDate(d.startDate)}<br>
@@ -264,6 +266,42 @@ function resumeTimeline() {
     });
   d3.select("#timeline-11").attr("stroke-width", 23).attr("opacity", 1);
   activeClicked = d3.select("#timeline-11").node();
+
+  // Update based on arrow clicks starting at the active node
+  var nodeNumber = activeClicked.id.substring(9);
+  console.log("begin " + activeClicked.id.substring(9));
+
+  d3.select(arrowLeft).on("click", () => {
+    console.log(activeClicked.id.substring(9));
+    nodeNumber = activeClicked.id.substring(9) - 1;
+    if (nodeNumber < 1) {
+      nodeNumber = 11;
+    }
+    updateTimeline();
+  });
+  d3.select(arrowRight).on("click", () => {
+    console.log(activeClicked.id.substring(9));
+    nodeNumber += 1;
+    if (nodeNumber > 11) {
+      nodeNumber = 1;
+    }
+    updateTimeline();
+  });
+
+  function updateTimeline() {
+    var timelineName = "#timeline-" + nodeNumber;
+    console.log("timeline: " + timelineName);
+
+    d3.selectAll(".timelines").attr("opacity", 0.5).attr("stroke-width", 20);
+    d3.selectAll(".outlines").attr("visibility", "hidden");
+
+    activeClicked = d3.select(timelineName).node();
+    d3.select(timelineName).attr("stroke-width", 23).attr("opacity", 1);
+    d3.select("#outline-" + nodeNumber).attr("visibility", "visible");
+
+    fileToLoad = "description/" + nodeNumber + ".html";
+    $("#includeHtml").load(fileToLoad);
+  }
 }
 
 function init() {

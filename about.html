@@ -25,11 +25,12 @@
       src="https://kit.fontawesome.com/5c1bf662b3.js"
       crossorigin="anonymous"
     ></script>
+    <script src="scripts/script.js"></script>
   </head>
 
   <body>
     <nav
-      class="navbar fixed-top navbar-expand-sm justify-content-center"
+    id="navbar" class="navbar fixed-top navbar-expand-sm justify-content-center"
       style="background-color: #1dbedd"
     >
       <ul class="navbar-nav">
@@ -54,22 +55,21 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            href="https://public.tableau.com/app/profile/danielle.martin1176"
-            target="_blank"
-            >Tableau Public</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
             href="https://www.linkedin.com/in/danielle-martin-87941b8b/"
             target="_blank"
-            >LinkedIn</a
+            >LinkedIn <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            style="color: #ffffff"
+          ></i
+        ></a
           >
         </li>
       </ul>
     </nav>
-
+    <div id="toggle-nav-button" onclick="openNav()">
+      <h1><i class="fa-solid fa-bars" style="color: #1dbedd"></i></h1>
+    </div>
+    
     <div class="container" id="aboutContainer">
       <div class="blurb mx-auto text-center">
         <h2 class="display-6 fw-bold text-body-emphasis">About Me</h2>
@@ -88,7 +88,7 @@
 
         <p class="mb-2 mt-4">
           When I'm not working, you can catch me looking at microscopic
-          creatures, watching video essays, coding, or listening to music.
+          creatures, watching video essays, coding, or reading.
         </p>
         <p
           class="lead mb-2 mt-4 fw-bold text-body-emphasis"
