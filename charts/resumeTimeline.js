@@ -6,22 +6,16 @@ function resumeTimeline() {
   // DATA
   var timelineData = [
     {
-      image: "img/graduation-cap-solid.svg",
+      image: "img/Education.svg",
       times: [
         {
           id: 1,
-          label: "Certificate IV Business",
-          startDate: new Date(2011, 3, 1),
-          endDate: new Date(2012, 9, 29),
-        },
-        {
-          id: 2,
           label: "Diploma of Laboratory Technology",
           startDate: new Date(2015, 1, 1),
           endDate: new Date(2016, 11, 1),
         },
         {
-          id: 3,
+          id: 2,
           label: "Bachelor of Computer Science",
           startDate: new Date(2019, 7, 1),
           endDate: new Date(2023, 10, 1),
@@ -29,53 +23,47 @@ function resumeTimeline() {
       ],
     },
     {
-      image: "img/briefcase-solid.svg",
+      image: "img/Work.svg",
       times: [
         {
-          id: 4,
-          label: "Sales and Marketing Assistant, Eagle Lighting Australia",
-          startDate: new Date(2011, 3, 1),
-          endDate: new Date(2014, 9, 1),
-        },
-        {
-          id: 5,
+          id: 3,
           label: "Pizza Delivery Driver, Batman Pizza",
           startDate: new Date(2015, 1, 1),
           endDate: new Date(2017, 11, 1),
         },
         {
-          id: 6,
+          id: 4,
           label: "Laboratory Assistant, Dorevitch Pathology",
           startDate: new Date(2017, 5, 1),
           endDate: new Date(2019, 2, 1),
         },
         {
-          id: 7,
+          id: 5,
           label:
             "Volunteer Team Leader/Founder, Melbourne Science & Tech Group",
           startDate: new Date(2018, 7, 1),
           endDate: new Date(2019, 5, 1),
         },
         {
-          id: 8,
+          id: 6,
           label: "Laboratory Assistant, Australian Clinical Labs",
           startDate: new Date(2019, 2, 2),
           endDate: new Date(2019, 5, 1),
         },
         {
-          id: 9,
+          id: 7,
           label: "Information Officer/Office Administrator, Emerge Australia",
           startDate: new Date(2020, 2, 1),
           endDate: new Date(2021, 1, 1),
         },
         {
-          id: 10,
+          id: 8,
           label: "Dogwalker & Pet Sitter/DoorDasher",
           startDate: new Date(2021, 2, 1),
           endDate: new Date(2023, 9, 1),
         },
         {
-          id: 11,
+          id: 9,
           label: "Junior Business Analyst, CTB AND CO.",
           startDate: new Date(2023, 9, 1),
           endDate: new Date(2025, 6, 13),
@@ -85,11 +73,11 @@ function resumeTimeline() {
   ];
 
   // CHART SETUP
-  var fileToLoad = "description/11.html";
+  var fileToLoad = "description/9.html";
   $("#includeHtml").load(fileToLoad);
   var activeClicked = null;
   var primaryColor = "#1dbedd";
-  var showTextBlock = 11;
+  var showTextBlock = 9;
   var arrowLeft = document.getElementById("arrow-left");
   var arrowRight = document.getElementById("arrow-right");
 
@@ -109,7 +97,7 @@ function resumeTimeline() {
   // X AXIS SCALE
   // var allTimes = [].concat(...timelineData.map((d) => d.times));
   //var scaleStartDate = d3.min(allTimes, (d) => d.startDate);
-  var scaleStartDate = new Date(2010, 0, 1);
+  var scaleStartDate = new Date(2015, 0, 1);
   var scaleEndDate = new Date(2026, 0, 1);
 
   var xScale = d3
@@ -124,7 +112,7 @@ function resumeTimeline() {
     .range([0, height]);
 
   // PLOT X AXIS
-  var xAxis = d3.axisTop(xScale).ticks(6).tickFormat(d3.timeFormat("%Y"));
+  var xAxis = d3.axisTop(xScale).ticks(10).tickFormat(d3.timeFormat("%Y"));
   svg
     .append("g")
     .attr("transform", "translate(0," + margin.top + ")")
@@ -158,7 +146,21 @@ function resumeTimeline() {
     .attr("x", -50)
     .attr("y", (d) => yScale(d.image) + 34)
     .attr("width", 30)
-    .attr("height", 30);
+    .attr("height", 30)
+    .on("mouseover", function (event, d) {
+      myTooltip.transition().duration(200).style("opacity", 1);
+      myTooltip.html(
+        `<strong>${d.image.substring(4, d.image.length - 4)} </strong><br>`
+      );
+    })
+    .on("mousemove", function (event) {
+      myTooltip
+        .style("left", event.pageX + 10 + "px")
+        .style("top", event.pageY + 10 + "px");
+    })
+    .on("mouseout", function () {
+      myTooltip.transition().duration(200).style("opacity", 0);
+    });
 
   // TOOLTIP
   var myTooltip = d3
@@ -179,7 +181,7 @@ function resumeTimeline() {
     .append("line")
     .attr("class", "outlines")
     .attr("id", (d) => "outline-" + d.id)
-    .attr("x1", (d) => xScale(d.startDate) + 20)
+    .attr("x1", (d) => xScale(d.startDate) + 15)
     .attr("y1", () => {
       return margin.top + 30;
     })
@@ -193,7 +195,7 @@ function resumeTimeline() {
     .attr("opacity", 1)
     .attr("visibility", "hidden");
 
-  d3.select("#outline-11").attr("visibility", "visible");
+  d3.select("#outline-9").attr("visibility", "visible");
 
   // Timelines
   groups
@@ -203,7 +205,7 @@ function resumeTimeline() {
     .append("line")
     .attr("class", "timelines")
     .attr("id", (d) => "timeline-" + d.id)
-    .attr("x1", (d) => xScale(d.startDate) + 20)
+    .attr("x1", (d) => xScale(d.startDate) + 15)
     .attr("y1", () => {
       return margin.top + 30;
     })
@@ -220,7 +222,7 @@ function resumeTimeline() {
       d3.select(this).attr("stroke-width", 23);
       d3.select(this).attr("stroke", primaryColor);
       myTooltip.transition().duration(200).style("opacity", 1);
-      if (d.id == 12) {
+      if (d.id == 10) {
         myTooltip.html(
           `<strong>${d.label}</strong><br>
           <strong>Start:</strong> ${formatDate(d.startDate)}<br>
@@ -264,8 +266,8 @@ function resumeTimeline() {
       fileToLoad = "description/" + d.id + ".html";
       $("#includeHtml").load(fileToLoad);
     });
-  d3.select("#timeline-11").attr("stroke-width", 23).attr("opacity", 1);
-  activeClicked = d3.select("#timeline-11").node();
+  d3.select("#timeline-9").attr("stroke-width", 23).attr("opacity", 1);
+  activeClicked = d3.select("#timeline-9").node();
 
   // Update based on arrow clicks starting at the active node
   var nodeNumber = activeClicked.id.substring(9);
@@ -273,16 +275,16 @@ function resumeTimeline() {
 
   d3.select(arrowLeft).on("click", () => {
     console.log(activeClicked.id.substring(9));
-    nodeNumber = activeClicked.id.substring(9) - 1;
+    nodeNumber = parseInt(activeClicked.id.substring(9)) - 1;
     if (nodeNumber < 1) {
-      nodeNumber = 11;
+      nodeNumber = 9;
     }
     updateTimeline();
   });
   d3.select(arrowRight).on("click", () => {
     console.log(activeClicked.id.substring(9));
-    nodeNumber += 1;
-    if (nodeNumber > 11) {
+    nodeNumber = parseInt(activeClicked.id.substring(9)) + 1;
+    if (nodeNumber > 9) {
       nodeNumber = 1;
     }
     updateTimeline();
