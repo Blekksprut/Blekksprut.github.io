@@ -66,7 +66,7 @@ function resumeTimeline() {
           id: 9,
           label: "Junior Business Analyst, CTB AND CO.",
           startDate: new Date(2023, 9, 1),
-          endDate: new Date(2025, 6, 13),
+          endDate: new Date(2025, 5, 13),
         },
       ],
     },
