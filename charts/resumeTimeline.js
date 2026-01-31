@@ -176,8 +176,7 @@ function resumeTimeline() {
     .style("opacity", 0)
     .attr("class", "tooltip")
     .style("position", "absolute")
-    .style("text-anchor", "middle")
-    .style("text-align", "middle");
+    .style("text-anchor", "middle");
 
   // TIMELINES
   // Outlines
