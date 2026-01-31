@@ -15,10 +15,16 @@ function resumeTimeline() {
           endDate: new Date(2016, 11, 1),
         },
         {
-          id: 2,
+          id: 6,
           label: "Bachelor of Computer Science",
           startDate: new Date(2019, 7, 1),
           endDate: new Date(2023, 10, 1),
+        },
+        {
+          id: 10,
+          label: "Upskilling",
+          startDate: new Date(2025, 5, 1),
+          endDate: new Date(),
         },
       ],
     },
@@ -26,26 +32,26 @@ function resumeTimeline() {
       image: "img/Work.svg",
       times: [
         {
-          id: 3,
+          id: 2,
           label: "Pizza Delivery Driver, Batman Pizza",
           startDate: new Date(2015, 1, 1),
           endDate: new Date(2017, 11, 1),
         },
         {
-          id: 4,
+          id: 3,
           label: "Laboratory Assistant, Dorevitch Pathology",
           startDate: new Date(2017, 5, 1),
           endDate: new Date(2019, 2, 1),
         },
         {
-          id: 5,
+          id: 4,
           label:
             "Volunteer Team Leader/Founder, Melbourne Science & Tech Group",
           startDate: new Date(2018, 7, 1),
           endDate: new Date(2019, 5, 1),
         },
         {
-          id: 6,
+          id: 5,
           label: "Laboratory Assistant, Australian Clinical Labs",
           startDate: new Date(2019, 2, 2),
           endDate: new Date(2019, 5, 1),
@@ -73,7 +79,8 @@ function resumeTimeline() {
   ];
 
   // CHART SETUP
-  var fileToLoad = "description/9.html";
+  var startingNode = "10";
+  var fileToLoad = "description/" + startingNode + ".html";
   $("#includeHtml").load(fileToLoad);
   var activeClicked = null;
   var primaryColor = "#1dbedd";
@@ -195,7 +202,7 @@ function resumeTimeline() {
     .attr("opacity", 1)
     .attr("visibility", "hidden");
 
-  d3.select("#outline-9").attr("visibility", "visible");
+  d3.select("#outline-" + startingNode).attr("visibility", "visible");
 
   // Timelines
   groups
@@ -222,7 +229,7 @@ function resumeTimeline() {
       d3.select(this).attr("stroke-width", 23);
       d3.select(this).attr("stroke", primaryColor);
       myTooltip.transition().duration(200).style("opacity", 1);
-      if (d.id == 10) {
+      if (d.id == startingNode) {
         myTooltip.html(
           `<strong>${d.label}</strong><br>
           <strong>Start:</strong> ${formatDate(d.startDate)}<br>
@@ -266,8 +273,10 @@ function resumeTimeline() {
       fileToLoad = "description/" + d.id + ".html";
       $("#includeHtml").load(fileToLoad);
     });
-  d3.select("#timeline-9").attr("stroke-width", 23).attr("opacity", 1);
-  activeClicked = d3.select("#timeline-9").node();
+  d3.select("#timeline-" + startingNode)
+    .attr("stroke-width", 23)
+    .attr("opacity", 1);
+  activeClicked = d3.select("#timeline-" + startingNode).node();
 
   // Update based on arrow clicks starting at the active node
   var nodeNumber = activeClicked.id.substring(9);
@@ -277,14 +286,14 @@ function resumeTimeline() {
     console.log(activeClicked.id.substring(9));
     nodeNumber = parseInt(activeClicked.id.substring(9)) - 1;
     if (nodeNumber < 1) {
-      nodeNumber = 9;
+      nodeNumber = startingNode;
     }
     updateTimeline();
   });
   d3.select(arrowRight).on("click", () => {
     console.log(activeClicked.id.substring(9));
     nodeNumber = parseInt(activeClicked.id.substring(9)) + 1;
-    if (nodeNumber > 9) {
+    if (nodeNumber > startingNode) {
       nodeNumber = 1;
     }
     updateTimeline();
