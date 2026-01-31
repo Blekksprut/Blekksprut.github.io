@@ -154,6 +154,7 @@ p {
 
 .nav-link {
   color: #fff !important;
+  font-weight: light;
 }
 
 .divider {
@@ -180,6 +181,20 @@ p {
 .nav-link.active {
   font-weight: bold;
   color: #fff;
+}
+
+.navbar .dropdown-item.active {
+  background-color: #1dbedd;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar .dropdown-menu {
+  background-color: #1dbedd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 /* *BUTTONS */

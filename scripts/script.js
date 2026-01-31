@@ -39,9 +39,22 @@ function openNav() {
 
 //set the nav item as active on click
 function initNavbar() {
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    if (link.href === window.location.href) {
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll(".nav-link, .dropdown-item").forEach((link) => {
+    const href = link.getAttribute("href");
+
+    // Ignore dropdown toggles or invalid links
+    if (!href || href === "#") return;
+
+    if (new URL(link.href).pathname === currentPath) {
       link.classList.add("active");
+
+      // Activate parent dropdown if child matches
+      const dropdown = link.closest(".dropdown");
+      if (dropdown) {
+        dropdown.querySelector(".nav-link").classList.add("active");
+      }
     }
   });
 }
