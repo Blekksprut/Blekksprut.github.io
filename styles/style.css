@@ -21,7 +21,8 @@ body {
 
 #resumeContainer,
 #achievementsContainer,
-#aboutContainer {
+#aboutContainer,
+#pythonContainer {
   margin-top: 100px;
   margin-bottom: 0px;
   align-items: start;

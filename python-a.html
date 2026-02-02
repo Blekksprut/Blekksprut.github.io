@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -31,13 +31,26 @@
   </head>
 
   <body>
-    <!-- Navigation placeholder -->
     <div id="navbar-placeholder"></div>
 
     <div class="container" id="pythonContainer">
-      <div class="blurb mx-auto text-center">
-        <h2 class="display-6 fw-bold text-body-emphasis">Hi Python</h2>
-        <py-script> print("Hello World!") </py-script>
+      <div class="w-100 text-center">
+        <h2 class="display-6 fw-bold text-body-emphasis text-center">
+          Book Ratings Chart
+        </h2>
+        <p>
+          This chart compares my own ratings with the average ratings from other
+          readers for a selection of books I've read recently.
+        </p>
+        <p>
+          The visualisation is presented as a dumbbell chart, created using the
+          Plotly graphing library in Python.
+        </p>
+        <p>
+          The ratings data was retrieved from the
+          <a href="https://hardcover.app">Hardcover</a> API using GraphQL.
+        </p>
+        <iframe src="charts/dumbbell.html" width="100%" height="2300"></iframe>
       </div>
     </div>
 
