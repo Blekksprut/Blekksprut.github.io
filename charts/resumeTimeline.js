@@ -84,9 +84,11 @@ function resumeTimeline() {
   $("#includeHtml").load(fileToLoad);
   var activeClicked = null;
   var primaryColor = "#1dbedd";
-  var showTextBlock = 9;
   var arrowLeft = document.getElementById("arrow-left");
   var arrowRight = document.getElementById("arrow-right");
+
+  var xAxisCurrentDate = new Date();
+  xAxisCurrentDate.setMonth(xAxisCurrentDate.getMonth() + 2);
 
   var chart = document.getElementById("resumeTimeline");
   var margin = { top: 20, right: 30, bottom: 50, left: 50 },
@@ -105,7 +107,7 @@ function resumeTimeline() {
   // var allTimes = [].concat(...timelineData.map((d) => d.times));
   //var scaleStartDate = d3.min(allTimes, (d) => d.startDate);
   var scaleStartDate = new Date(2015, 0, 1);
-  var scaleEndDate = new Date(2026, 0, 1);
+  var scaleEndDate = xAxisCurrentDate;
 
   var xScale = d3
     .scaleTime()
@@ -157,7 +159,7 @@ function resumeTimeline() {
     .on("mouseover", function (event, d) {
       myTooltip.transition().duration(200).style("opacity", 1);
       myTooltip.html(
-        `<strong>${d.image.substring(4, d.image.length - 4)} </strong><br>`
+        `<strong>${d.image.substring(4, d.image.length - 4)} </strong><br>`,
       );
     })
     .on("mousemove", function (event) {
@@ -232,13 +234,13 @@ function resumeTimeline() {
         myTooltip.html(
           `<strong>${d.label}</strong><br>
           <strong>Start:</strong> ${formatDate(d.startDate)}<br>
-           <strong>End:</strong> Present`
+           <strong>End:</strong> Present`,
         );
       } else {
         myTooltip.html(
           `<strong>${d.label}</strong><br>
           <strong>Start:</strong> ${formatDate(d.startDate)}<br>
-           <strong>End:</strong> ${formatDate(d.endDate)}`
+           <strong>End:</strong> ${formatDate(d.endDate)}`,
         );
       }
     })
