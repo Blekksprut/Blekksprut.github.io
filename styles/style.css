@@ -22,7 +22,8 @@ body {
 #resumeContainer,
 #achievementsContainer,
 #aboutContainer,
-#pythonContainer {
+#pythonContainer,
+#myWordsContainer {
   margin-top: 100px;
   margin-bottom: 0px;
   align-items: start;
@@ -98,13 +99,6 @@ img {
   z-index: 1;
   position: relative;
 }
-
-/* #firstLottie {
-  z-index: 2;
-  position: absolute;
-  margin-left: -30px;
-  margin-top: -30px;
-} */
 
 /* *FONTS */
 h1 {
@@ -225,6 +219,7 @@ p {
   pointer-events: none;
   /* blur behind the tooltip */
   background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 
   border-radius: 5px;
@@ -233,3 +228,17 @@ p {
   border-color: #32afb7;
   padding: 5px;
 }
+
+/* *CARDS */
+/* #wordCards {
+  background-color: #cf1111;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-sizing: border-box;
+  border-radius: var(--bs-border-radius) !important;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  text-align: center;
+} */
