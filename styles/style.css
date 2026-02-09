@@ -71,7 +71,9 @@ body {
   }
   #aboutContainer,
   #achievementsContainer,
-  #resumeContainer {
+  #resumeContainer,
+  #pythonContainer,
+  #myWordsContainer {
     margin-top: 270px;
   }
   /* Rotate the nav divider line in mobile or small screens */
