@@ -65,8 +65,8 @@ body {
   margin-left: 40px;
 }
 
-#totalWords {
-  height: 150px !important;
+#totalWordsDiv {
+  min-height: 240px !important;
   margin-bottom: 16px !important;
 }
 
@@ -102,6 +102,9 @@ body {
   }
   #toggle-nav-button {
     background-color: #fff;
+  }
+  #totalWords {
+    font-size: 500%;
   }
 }
 

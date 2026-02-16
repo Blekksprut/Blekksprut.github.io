@@ -99,7 +99,7 @@ function displayHistogram(difficultyArr) {
   var chart = document.getElementById("histogramCard");
 
   min = 1;
-  max = 10;
+  max = 11;
   domain = [min, max];
 
   var margin = { top: 5, right: 30, bottom: 20, left: 10 },
@@ -107,14 +107,11 @@ function displayHistogram(difficultyArr) {
     height = 150 - margin.top - margin.bottom;
 
   // The number of bins
-  Nbin = 10;
+  Nbin = 11;
 
   var x = d3.scaleLinear().domain(domain).range([0, width]);
 
-  var histogram = d3
-    .histogram()
-    .domain(x.domain()) // then the domain of the graphic
-    .thresholds(x.ticks(Nbin)); // then the numbers of bins
+  var histogram = d3.histogram().domain(x.domain()).thresholds(x.ticks(Nbin));
 
   // And apply this function to data to get the bins
   var bins = histogram(difficultyArr);
@@ -127,10 +124,15 @@ function displayHistogram(difficultyArr) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  //x-axis
   svg
     .append("g")
+    .attr("class", "x-axis")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x).ticks(10).tickSizeOuter(0));
+
+  //remove the stupid 11
+  d3.select(".x-axis").select(".tick:last-of-type").remove();
 
   var y = d3
     .scaleLinear()
@@ -141,6 +143,17 @@ function displayHistogram(difficultyArr) {
         return d.length;
       }),
     ]);
+
+  // TOOLTIP
+  var myTooltip = d3
+    .select(chart)
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("text-anchor", "middle")
+    .style("left", 15 + "px")
+    .style("top", 55 + "px");
 
   svg
     .selectAll("rect")
@@ -157,7 +170,19 @@ function displayHistogram(difficultyArr) {
     .attr("height", function (d) {
       return height - y(d.length);
     })
-    .style("fill", "#1dbedd");
+    .attr("opacity", 0.7)
+    .style("fill", "#1dbedd")
+    .on("mouseover", function (event, d) {
+      d3.select(this).attr("opacity", 1);
+      myTooltip.transition().duration(200).style("opacity", 1);
+      myTooltip.html(
+        `<strong>Difficulty: ${d.x0}</strong><br>Count: ${d.length}`,
+      );
+    })
+    .on("mouseout", function () {
+      d3.select(this).attr("opacity", 0.7);
+      myTooltip.transition().duration(200).style("opacity", 0);
+    });
 }
 
 function displayProgress(memorisedCount, datasetLength) {
@@ -177,9 +202,8 @@ function displayProgress(memorisedCount, datasetLength) {
   // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
   const radius = Math.min(progWidth, progHeight) / 2 - progMargin;
 
+  // append the svg object to the element
   const progressChart = document.getElementById("progressCard");
-
-  // append the svg object to the div
   const progSvg = d3
     .select(progressChart)
     .append("svg")
@@ -197,6 +221,8 @@ function displayProgress(memorisedCount, datasetLength) {
   const data_ready = pie(Object.entries(progressData));
 
   // Build the pie chart
+  // reference for start angle:
+  // https://stackoverflow.com/questions/20490100/pie-layout-start-angle#20490295
   progSvg
     .selectAll("progress")
     .data(data_ready)
@@ -355,7 +381,7 @@ async function prepareData(dataset) {
     // Put div structure and word title onto cards
     const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `<div class="row justify-content-between"><h3 class=".card-title col-md-6 col-sm-12">${dataset[i].word}</h3>
-    <h6 class="col-md-6 col-sm-12 text-end">
+    <h6 class="col-md-6 col-sm-12 text-md-end">
     <span class="me-1">MEMORISED ${icon}</span> 
     DIFFICULTY <span id="difficultyCard${i}" class="badge bg-light text-dark"></span></h6>
     </div>
@@ -391,10 +417,9 @@ async function prepareData(dataset) {
       for (let j = 0; j < dataset[i].part.length; j++) {
         const partDiv = document.createElement("div");
         const definitionDiv = document.createElement("div");
-        partDiv.className = "card-subtitle mb-2 text-muted col-5";
         definitionDiv.className = ".card-text";
 
-        partDiv.innerHTML = `<h6>${dataset[i].part[j]}.</h6>`;
+        partDiv.innerHTML = `<h6 class="card-subtitle mb-2 text-muted col-5">${dataset[i].part[j]}.</h6>`;
         definitionDiv.innerHTML = `<p>${dataset[i].definition[j]}</p>`;
 
         card.appendChild(partDiv);
@@ -429,7 +454,7 @@ async function prepareData(dataset) {
     var wordSynonyms = dataset[i].synonyms;
     var wordSynonymsArray = wordSynonyms.match(/[^,\s][^,]*/g) || [];
     if (wordSynonymsArray.length > 1) {
-      document.getElementById(`synonymTitle${i}`).innerHTML = "SYNONYMS";
+      document.getElementById(`synonymTitle${i}`).innerHTML = "RELATED WORDS";
       for (let j = 0; j < wordSynonymsArray.length; j++) {
         const divSynonymsList = document.createElement("div");
         divSynonymsList.innerHTML = `<span class="badge rounded-pill bg-light text-dark m-1">${wordSynonymsArray[j]}</span>`;

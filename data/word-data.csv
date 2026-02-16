@@ -1,5 +1,5 @@
 runQuery,word,definition,synonyms,part,sourceType,sourceDetail,dateEncountered,isMemorised,difficulty
-1,Vertiginous,,,,,,Merriam Webster,Word of the day,2026,FALSE,
+0,Vertiginous,"having or causing a whirling sensation; liable to falling",", woozy, sick, ill, giddy, dizzy, ","adjective",Merriam Webster,Word of the day,2026,FALSE,10
 0,Riparian,"of or relating to or located on the banks of a river or stream",", , ","adjective",Person,Forrest,2026,FALSE,6
 0,Souced,"1: (of food especially fish) preserved in a pickling solution or a marinade. 2: drunk","pickled, marinated, soaked, steeped, drunk ","adjective",Book,,2025,TRUE,undefined
 0,Pariah,"1: A person who is rejected (from society or home). 2: A member of a group of castes concentrated in the Indian states of Kerala and Tamil Nadu and in Sri Lanka, included among the Scheduled Castes or Dalits ","outcast, persona non grata, leper, reject, untouchable, undesirable. ","noun",Book,,2025,TRUE,9
