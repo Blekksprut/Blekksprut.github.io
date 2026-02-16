@@ -65,6 +65,15 @@ body {
   margin-left: 40px;
 }
 
+#totalWords {
+  height: 150px !important;
+  margin-bottom: 16px !important;
+}
+
+#csvData {
+  min-height: 200px !important;
+}
+
 @media (max-width: 575px) {
   #topContainer {
     margin-top: 220px;
@@ -194,18 +203,10 @@ p {
 }
 
 /* *BUTTONS */
-.button-container {
-  padding: 20px 0px 20px 0px;
-}
-.button {
-  display: flex;
-  align-items: center;
-}
-.button > span {
-  font-weight: 500;
-}
-.logo {
-  margin-top: 0;
+.btn {
+  color: #555555 !important;
+  background-color: #1dbddd2f !important;
+  font-weight: 600 !important;
 }
 
 /* *CHART */

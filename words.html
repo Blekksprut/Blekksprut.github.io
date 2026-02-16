@@ -37,7 +37,6 @@
     <!-- Navigation placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- testing shit -->
     <div class="container" id="myWordsContainer">
       <div class="container-fluid">
         <div class="row">
@@ -48,24 +47,64 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-9">
-            <div class="input-group shadow-sm p-3 mb-5 bg-white rounded">
-              <span class="input-group-text bg-white border-0 border-bottom rounded-0 fa fa-magnifying-glass pt-2" id="search"></span>
-              <input type="text" class="form-control border-0 border-bottom rounded-0" placeholder="Search by word" aria-label="searchTerm" aria-describedby="search" id="searchTerm">
-            </div>
-          </div>
-          <!-- <div class="col">
-            <div class="card border-light shadow-sm p-3 mb-5 bg-white rounded">
-              2 of 3
-            </div>
-          </div>
           <div class="col">
-            <div class="card border-light shadow-sm p-3 mb-5 bg-white rounded">
-              3 of 3
+            <p class="text-center">
+              This is a list of words I have encountered and am trying to incoorperate into my vocabulary
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="card border-light shadow-sm p-3 mb-3 bg-white rounded">
+              <p class="fw-bold">Total Words</p>
+              <h1 id="totalWords" class="display-1 text-center align-middle"></h1>
             </div>
-          </div> -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card border-light shadow-sm p-3 mb-3 bg-white rounded">
+              <p class="fw-bold">Words Memorized</p>
+              <p id="progressCard" class="text-center"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card border-light shadow-sm p-3 mb-3 bg-white rounded">
+              <p class="fw-bold">Average Difficulty</p>
+              <p id="difficultyGauge" class="text-center"></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card border-light shadow-sm p-3 mb-3 bg-white rounded"> <p class="fw-bold">Difficulty Distribution</p>
+              <p id="histogramCard" class="text-center"></p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="input-group shadow-sm p-3 mb-4 bg-white rounded">
+              <span class="input-group-text bg-white border-0 border-bottom rounded-0 fa fa-magnifying-glass pt-2" id="search"></span>
+              <input type="text" class="form-control border-0 border-bottom rounded-0" placeholder="Search my words" aria-label="searchTerm" aria-describedby="search" id="searchTerm">
+            </div>
+          </div>
         </div>
         <div id="cardsContainer">
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="accordion">
+              <div class="accordion-item mb-3 border-light shadow-sm p-3 mb-4 bg-white rounded">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelCsvData" aria-expanded="false" aria-controls="panelCsvData">
+                    Word Data in CSV Format
+                  </button>
+                </h2>
+                <div id="panelCsvData" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                  <div class="accordion-body">
+                    <div class="input-group">
+                      <textarea id="csvData" class="form-control" aria-label="With textarea" readonly></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
