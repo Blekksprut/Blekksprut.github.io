@@ -1,21 +1,26 @@
 // Fetch the navigation component
-fetch("/nav.html")
-  .then((response) => {
-    // Check if the request was successful
-    if (!response.ok) {
-      throw new Error(`Failed to load nav: ${response.status}`);
-    }
-    return response.text(); // Convert response to text
-  })
-  .then((navHTML) => {
-    // Insert the navigation HTML into the placeholder
-    document.getElementById("navbar-placeholder").innerHTML = navHTML;
-    initNavbar();
-  })
-  .catch((error) => {
-    // Log errors (e.g., if nav.html is missing)
-    console.error("Error loading navigation:", error);
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/nav.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load nav: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((navHTML) => {
+      const placeholder = document.getElementById("navbar-placeholder");
+
+      if (!placeholder) {
+        throw new Error("Navbar placeholder not found in DOM");
+      }
+
+      placeholder.innerHTML = navHTML;
+      initNavbar();
+    })
+    .catch((error) => {
+      console.error("Error loading navigation:", error);
+    });
+});
 
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar. From W3 schools*/
 var prevScrollpos = window.pageYOffset;
