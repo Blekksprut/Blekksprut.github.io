@@ -380,7 +380,7 @@ async function prepareData(dataset) {
 
     // Put div structure and word title onto cards
     const cardDiv = document.createElement("div");
-    cardDiv.innerHTML = `<div class="row justify-content-between"><h3 class=".card-title col-md-6 col-sm-12">${dataset[i].word}</h3>
+    cardDiv.innerHTML = `<div class="row justify-content-between"><h3 class=".card-title col-md-6 col-sm-12">${dataset[i].word.toLowerCase()}</h3>
     <h6 class="col-md-6 col-sm-12 text-md-end">
     <span class="me-1">MEMORISED ${icon}</span> 
     DIFFICULTY <span id="difficultyCard${i}" class="badge bg-light text-dark"></span></h6>
@@ -463,7 +463,7 @@ async function prepareData(dataset) {
       }
     }
     // dump all the data into a text block in csv format
-    csvDataElement.value += `0,${dataset[i].word},"${dataset[i].definition}","${dataset[i].synonyms}","${dataset[i].part}",${dataset[i].sourceType},${dataset[i].sourceDetail},${dataset[i].dateEncountered},${dataset[i].isMemorised},${dataset[i].difficulty}\n`;
+    csvDataElement.value += `0,${dataset[i].word},"${dataset[i].definition}","${dataset[i].synonyms}","${dataset[i].part}","${dataset[i].sourceType}","${dataset[i].sourceDetail}",${dataset[i].dateEncountered},"${dataset[i].isMemorised}",${dataset[i].difficulty}\n`;
   }
   displayProgress(memorisedCounter, dataset.length);
   displayHistogram(difficultyArr);
