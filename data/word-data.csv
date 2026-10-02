@@ -1,5 +1,9 @@
 runQuery,word,definition,synonyms,part,sourceType,sourceDetail,dateEncountered,isMemorised,difficulty
-1,guileless,"","","","Book","The Stand-In by Lily Chu",2026,"FALSE",undefined
+1,diagetic,"","","","YouTube","Sharp Objects: when trauma breeds monsters",2026,"FALSE",undefined
+1,paucity,"","","","Person","Forrest",2026,"FALSE",undefined
+1,lacrimosa,"","","","Person","Forrest",2026,"FALSE",undefined
+1,polemical,"","","","Book"," The Z Word by Lindsay King-Miller ",2026,"FALSE",undefined
+0,guileless,"Free of deceit","","","Book","The Stand-In by Lily Chu",2026,"FALSE",undefined
 0,somnambulant,"Walking as if, or while, asleep. Resembling or having the characteristics of a sleepwalker","anaemically, apathetically","adjective","Book"," The Z Word by Lindsay King-Miller ",2026,"FALSE",undefined
 0,balefully,"deadly or sinister.  threatening or foreshadowing evil or tragic developments",", threatening, sinister, ominous, minatory, minacious, menacing, maleficent, forbidding, baneful, alarming, ","adjective","Book"," The Z Word by Lindsay King-Miller ",2026,"TRUE",9
 0,polemical,"of or involving dispute or controversy",", polemic, controversial, polemic, controversial, disputatious","adjective","Book"," The Z Word by Lindsay King-Miller ",2026,"FALSE",9
